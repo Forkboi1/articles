@@ -14,11 +14,11 @@ class ArticleDetailsPage extends StatelessWidget {
       cardList.add(
         Card(
           color: Colors.blue[200],
+          elevation: 5,
           child: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Text(keyword),
           ),
-          elevation: 5,
         )
       );
     }
@@ -26,11 +26,19 @@ class ArticleDetailsPage extends StatelessWidget {
       children: cardList);
   }
 
+  Future<void> launchUrL(String urlString) async {
+  if (await canLaunchUrl(Uri.dataFromString(urlString))) { // Check if the URL can be launched
+    await launchUrl(Uri.dataFromString(urlString));
+  } else {
+    throw 'Could not launch $urlString'; // throw could be used to handle erroneous situations
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Article Details"),
+        title: const Text("Article Details"),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Padding(
@@ -40,48 +48,42 @@ class ArticleDetailsPage extends StatelessWidget {
           children: [
             Text(
               article.title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'Author(s): ${article.author}',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'Publication date: ${article.pubDate.substring(0, 10)}',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SingleChildScrollView(
               child: Text(
                 article.leadParagraph,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
             SingleChildScrollView(
               child: Text(
                 article.snippet,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'Article source: ${article.source}',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             keywordCard(article.keywordsList, context),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             InkWell(
-              onTap: () async {
-                if (await canLaunch(article.webUrl)) {
-                  await launch(article.webUrl);
-                } else {
-                  throw 'Could not launch ${article.webUrl}';
-                }
-              },
-              child: Text(
+              onTap: (){launchUrL(article.webUrl);},
+              child: const Text(
                 'Read more',
                 style: TextStyle(fontSize: 16, color: Colors.blue, decoration: TextDecoration.underline),
               ),

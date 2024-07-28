@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'article_details_page.dart';
 import 'articles_page.dart';
 import 'package:article_api_app/news_article.dart';
+import 'text.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -64,11 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 destinations: [
                   NavigationRailDestination(
                     icon: Icon(Icons.home), 
-                    label: Text("Home"),
+                    label: Text(AppText.home),
                   ),
                   NavigationRailDestination(
                     icon: Icon(Icons.details), 
-                    label: Text("View Details"),
+                    label: Text(AppText.viewDetails),
                     disabled: disabled,
                   ),
                 ],

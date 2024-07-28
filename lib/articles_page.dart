@@ -1,8 +1,8 @@
 import 'package:article_api_app/news_article.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'text.dart';
 
 
 import 'news_response.dart';
@@ -10,7 +10,7 @@ import 'news_response.dart';
 class ArticlesPage extends StatefulWidget{
   final Function(int, NewsArticle) onArticleTap;
 
-  ArticlesPage({required this.onArticleTap});
+  const ArticlesPage({super.key, required this.onArticleTap});
 
   @override
   State<ArticlesPage> createState() => _ArticlesPageState();
@@ -55,7 +55,7 @@ class _ArticlesPageState extends State<ArticlesPage> {
           widget.onArticleTap(1,selectedArticle);
         },
         child: Card(
-          margin: EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
           elevation: 5,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -65,17 +65,17 @@ class _ArticlesPageState extends State<ArticlesPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(newsArticle.title),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text('Author(s): ${newsArticle.author}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 10,
                       color: Colors.grey
                     ),)
                   ],
                 ), 
-                Spacer(),
+                const Spacer(),
                 Text('Publication date: ${newsArticle.pubDate.substring(0,10)}')
               ],
             ),
@@ -89,7 +89,7 @@ class _ArticlesPageState extends State<ArticlesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Articles"),
+        title: const Text(AppText.homeHeader),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: SingleChildScrollView(
