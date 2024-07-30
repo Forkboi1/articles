@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class ArticleDetailsPage extends StatelessWidget {
   final NewsArticle article;
 
-  const ArticleDetailsPage({required this.article});
+  const ArticleDetailsPage({super.key, required this.article});
 
   Widget keywordCard(List<dynamic> keywordsList, BuildContext context){
 

@@ -6,6 +6,8 @@ import 'text.dart';
 
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -22,7 +24,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -61,15 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             SafeArea(
               child: NavigationRail(
-                extended: constraints.maxWidth >= 300,
+                extended: constraints.maxWidth >= 800,
                 destinations: [
-                  NavigationRailDestination(
+                  const NavigationRailDestination(
                     icon: Icon(Icons.home), 
                     label: Text(AppText.home),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Icons.details), 
-                    label: Text(AppText.viewDetails),
+                    icon: const Icon(Icons.details), 
+                    label: const Text(AppText.viewDetails),
                     disabled: disabled,
                   ),
                 ],

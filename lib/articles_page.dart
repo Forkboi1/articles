@@ -60,11 +60,16 @@ class _ArticlesPageState extends State<ArticlesPage> {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(newsArticle.title),
+                    Text(newsArticle.title,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        ),
+                      ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -72,7 +77,8 @@ class _ArticlesPageState extends State<ArticlesPage> {
                     style: const TextStyle(
                       fontSize: 10,
                       color: Colors.grey
-                    ),)
+                      ),
+                    )
                   ],
                 ), 
                 const Spacer(),
