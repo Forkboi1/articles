@@ -25,15 +25,15 @@ class NewsArticle {
     var keywords = json['keywords'] as List;
     List keywordsList = keywords.map((keyword) => keyword['value']).toList();
     return NewsArticle(
-      abstract: json['abstract'] as String,
-      webUrl: json['web_url'] as String,
-      snippet: json['snippet'] as String,
-      leadParagraph: json['lead_paragraph'] as String,
-      source: json['source'] as String,
-      title: json['headline']['main'] as String,
+      abstract: json['abstract']  ?? "",
+      webUrl: json['web_url'] ?? "",
+      snippet: json['snippet'] ?? "",
+      leadParagraph: json['lead_paragraph'] ?? "",
+      source: json['source'] ?? "",
+      title: json['headline']['main'] ?? "",
       keywordsList: keywordsList,
-      pubDate: json['pub_date'],
-      author: json['byline']['original'],
+      pubDate: json['pub_date']  ?? "",
+      author: json['byline']['original'] ?? "",
 
     );
   }

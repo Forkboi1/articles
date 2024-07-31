@@ -59,29 +59,23 @@ class _ArticlesPageState extends State<ArticlesPage> {
           elevation: 5,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(newsArticle.title,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        ),
-                      ),
-                    const SizedBox(
-                      height: 10,
+                Text(newsArticle.title,
+                  style: const TextStyle(
+                    fontSize: 12,
                     ),
-                    Text('Author(s): ${newsArticle.author}',
-                    style: const TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey
-                      ),
-                    )
-                  ],
-                ), 
-                const Spacer(),
+                  ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text('Author(s): ${newsArticle.author}',
+                style: const TextStyle(
+                  fontSize: 10,
+                  color: Colors.grey
+                  ),
+                ),
                 Text('Publication date: ${newsArticle.pubDate.substring(0,10)}')
               ],
             ),
